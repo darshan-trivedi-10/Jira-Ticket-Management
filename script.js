@@ -1,6 +1,6 @@
 let addBtn = document.querySelector(".add-btn");
 let removeBtn = document.querySelector(".remove-btn");
-let addFlag = true;
+let addFlag = false;
 let modalCont = document.querySelector(".modal-cont");
 let mainCont = document.querySelector(".main-cont");
 let textAreaCont = document.querySelector(".textarea-cont");
@@ -10,11 +10,9 @@ let modalPriorityColor = colors[3];
 let removeFlag = false;
 let lockClass = "fa-lock";
 let unlockClass = "fa-lock-open";
+let toolBoxcolor = document.querySelectorAll(".color");
+let ticketArr = [];
 
-if (addFlag) {
-    modalCont.style.display = "none";
-
-}
 
 
 // Listener for modal coloring
@@ -48,7 +46,7 @@ removeBtn.addEventListener("click", (e) => {
 modalCont.addEventListener("keydown", (e) => {
     let key = e.key;
     if (key === "Shift") {
-        createTicket(modalPriorityColor, textAreaCont.value, shortid());
+        createTicket(modalPriorityColor, textAreaCont.value, undefined);
         modalCont.style.display = "none";
         addFlag = false;
         textAreaCont.value = "";
@@ -56,12 +54,16 @@ modalCont.addEventListener("keydown", (e) => {
 })
 
 function createTicket(ticketColor, ticketTask, ticketId) {
+    let id = ticketId;
+    if (ticketId == undefined) {
+        id = shortid();
+    }
     let ticketCont = document.createElement("div");
     ticketCont.setAttribute("class", "ticket-cont");
     ticketCont.innerHTML = `
     <div class="ticket-cont">
     <div class="ticket-color ${ticketColor}"></div>
-    <div class="ticket-id">#${ticketId}</div>
+    <div class="ticket-id">#${id}</div>
     <div class="ticket-area">${ticketTask}</div>
     </div>
     <div class="ticket-lock">
@@ -69,6 +71,8 @@ function createTicket(ticketColor, ticketTask, ticketId) {
     </div>
 `;
     mainCont.appendChild(ticketCont);
+    // create object of ticket and add to array.
+    ticketArr.push({ ticketColor, ticketTask, ticketId: id });
     handleRemoval(ticketCont);
     handleLock(ticketCont);
     handleColor(ticketCont);
@@ -112,4 +116,6 @@ function handleColor(ticket) {
         ticketColor.classList.remove((currTicketColor));
         ticketColor.classList.add(newTicketColor);
     })
+
 }
+
