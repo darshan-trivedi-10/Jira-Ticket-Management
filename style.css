@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.Headline {
+
+    font-size: 4vh;
+    background: -webkit-linear-gradient(rgb(226, 5, 5), rgb(2, 247, 125));
+    font-family: monospace;
+    background-clip: unset;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.toolbox-cont {
+    height: 5rem;
+    background-color: #4b4b4b;
+    display: flex;
+    align-items: center;
+}
+
+.toolbox-cont>* {
+    margin-left: 4rem;
+    border-radius: 10px;
+
+}
+
+.toolbox-priority-cont {
+    height: 3.5rem;
+    width: 30%;
+    background-color: #3d3d3d;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.action-btn-cont {
+    height: 3rem;
+    width: 8rem;
+    background-color: #3d3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.color {
+    height: 2rem;
+    width: 3.5rem;
+    border-radius: 5px;
+    background-color: lightsalmon;
+}
+
+.lightpink {
+    background-color: lightpink;
+}
+
+.lightgreen {
+    background-color: lightgreen;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
+.black {
+    background-color: black;
+}
+
+.add-btn, .remove-btn {
+    width: 40px;
+    margin-left: 15px;
+    font-size: 1.5rem;
+    margin: 12px;
+    margin-left: 22px;
+    color: #d1d8e0;
+    align-self: center;
+}
+
+.add-btn:hover {
+    font-size: 2rem;
+    color: rgb(10, 255, 10);
+}
+
+.remove-btn:hover {
+    font-size: 2.2rem;
+    color: red;
+}
+
+.modal-cont {
+    height: 50vh;
+    width: 45vw;
+    background: lightblue;
+    position: absolute;
+    top: calc((100vh) / 3.5);
+    left: calc(100vw/ 3.5);
+    display: none;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.textarea-cont {
+    height: 100%;
+    width: 75%;
+    border: none;
+    outline: none;
+    background-color: lightblue;
+    resize: none;
+    background-color: #46484b;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.priority-colors-cont {
+    height: 100%;
+    width: 25%;
+    background-color: rgba(43, 3, 31, 0.904);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.priority-color {
+    height: 2.5rem;
+    border-radius: 5px;
+    width: 60%;
+    opacity: 1;
+}
+
+.main-cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+
+}
+
+.border {
+    border: 5px solid rgb(218, 226, 140);
+}
+
+.ticket-cont {
+    height: 13rem;
+    width: 17rem;
+    background-color: #4d4e53;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.ticket-color {
+    height: 1rem;
+}
+
+.ticket-lock {
+    height: 2rem;
+    display: flex;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 2rem;
+    color: rgb(247, 160, 0);
+    justify-content: end;
+    padding-right: 1rem;
+}
+
+.ticket-id {
+    height: 2rem;
+    color: rgb(245, 52, 52);
+    padding: 0.4rem;
+}
+
+.ticket-area {
+    height: calc(100% - 5rem);
+    color: white;
+    padding: 0.4rem;
+    outline: none;
+}
+
+
+@media screen and (min-width:381px) and (max-width:525px) {
+    .Headline {
+        font-size: 20px;
+    }
+
+    .main-cont {
+        position: relative;
+        right: 5vw;
+    }
+}
+
+
+@media screen and (min-width:10px) and (max-width:380px) {
+    .Headline {
+        font-size: 19px;
+    }
+
+    .toolbox-priority-cont {
+        position: relative;
+        right: 50px;
+    }
+
+    .action-btn-cont {
+        position: relative;
+        right: 60px;
+    }
+}
